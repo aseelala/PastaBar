@@ -16,7 +16,7 @@ namespace PastaBar.Controllers
         {
             _persoonService = persoonService;
         }
-        
+
         public IActionResult Index()
         {
             return Redirect("~/Inschrijven/Toevoegen");
@@ -29,16 +29,18 @@ namespace PastaBar.Controllers
             return View(persoon);
         }
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public IActionResult Toevoegen(Persoon p)
         {
             if (this.ModelState.IsValid)
             {
                 _persoonService.Add(p);
-                return RedirectToAction("Index");
+                return RedirectToAction("Welcom", p);
             }
-            else return View(p);
+            return View(p);
         }
-        
+        public IActionResult Welcom(Persoon p)
+        {
+            return View(p);
         }
+    }
 }

@@ -51,7 +51,10 @@ a {
 .antiquewhite {
     background-color: antiquewhite;
 }
-.groen{background-color:forestgreen;}
+.groene-button {
+    background-color: forestgreen;
+    color: white;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

@@ -18,9 +18,6 @@ namespace PastaBar.Controllers
 {
     public class HomeController : Controller
     {
-
-
-
         private BestellingService _bestellingService;
         public HomeController(BestellingService bestellingService)
         {
@@ -32,19 +29,13 @@ namespace PastaBar.Controllers
             return View(pasta);
         }
 
-
-        /*[HttpGet]
-        public IActionResult Toevoeg(Pasta pasta)
-        {
-            //var pasta = new Pasta();
-            return View(pasta);
-        }*/
         [HttpPost]
         public IActionResult Toevoegen(Pasta pasta)
         {
 
             this.TempData["pasta"] = JsonConvert.SerializeObject(pasta);
             _bestellingService.Add(pasta);
+            this.TempData["pastas"] = JsonConvert.SerializeObject(_bestellingService.FindAll());
             return Redirect("~/Home/Toevoegd");
         }
 
@@ -54,11 +45,12 @@ namespace PastaBar.Controllers
             return View(pasta);
         }
 
-
-
         public IActionResult overzichts()
         {
-            var bestelling = _bestellingService.FindAll();
+            var bestelling = new List<Pasta>();
+            if (this.TempData.Keys.Contains("pastas"))
+                bestelling = JsonConvert.DeserializeObject<List<Pasta>>((string)this.TempData["pastas"]);
+
             return View(bestelling);
         }
 

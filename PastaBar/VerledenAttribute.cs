@@ -8,6 +8,10 @@ namespace PastaBar
 {
     public class VerledenAttribute : ValidationAttribute
     {
+        public VerledenAttribute()
+        {
+            ErrorMessage = "Niet Verleden tijd";
+        }
         public override bool IsValid(object value)
         {
             if (value == null)
