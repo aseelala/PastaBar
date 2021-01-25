@@ -1,0 +1,40 @@
+﻿@model Persoon
+@{ ViewBag.Title = "Toevoegen"; }
+<h2>Inschrijf hier in voor onze nieuwsbrief</h2>
+<form method="post" action="~/Inschrijven/Toevoegen">
+    <label asp-for="Naam"></label>
+    <br />
+    <input asp-for="Naam">
+    </input>
+    <span asp-validation-for="Naam"></span>
+    <br />
+    <label asp-for="Voornaam"></label>
+    <br />
+    <input asp-for="Voornaam">
+    </input>
+    <span asp-validation-for="Voornaam"></span>
+    <br />
+    <label asp-for="Email"></label>
+    <br />
+    <input asp-for="Email">
+    </input>
+    <span asp-validation-for="Email"></span>
+
+    <br />
+    <label asp-for="Telefoon"></label>
+    <br />
+    <input asp-for="Telefoon">
+    </input>
+    <br />
+    <label asp-for="Geboortedatum"></label>
+    <br />
+    <input asp-for="Geboortedatum">
+    </input>
+    <span asp-validation-for="Geboortedatum"></span>
+
+    <br />
+
+
+    <input type="submit" value="Inschrijven" />
+    <div asp-validation-summary="All"></div>
+</form>

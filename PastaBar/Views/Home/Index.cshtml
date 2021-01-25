@@ -1,0 +1,26 @@
+﻿@model Pasta
+@{ ViewBag.Title = "Toevoegen";}
+<h2>Bestelling</h2>
+<form method="post" action="~/Home/Toevoegen">
+    <label class="bold" asp-for="Soort"> 1.Kies de pasta</label>
+    <br />
+    <select asp-for="Soort" class="antiquewhite" asp-items="@new SelectList(Enum.GetNames(typeof(Soortpasta)))">
+    </select>
+    <br />
+    <label asp-for="Grotte" class="bold">2.Kies de grotte</label>
+    <br />
+    <select asp-for="Grotte" class="antiquewhite" asp-items="@new SelectList(Enum.GetNames(typeof(GrottePasta)))">
+    </select>
+    <br />
+
+    <label asp-for="Saus" class="bold">3.Kies de saus</label>
+    <br />
+    <select asp-for="Saus" class="antiquewhite" asp-items="@new SelectList(Enum.GetNames(typeof(SausPasta)))">
+    </select>
+    <br />
+    <br />
+
+    <input type="submit" class="groen" value="Voeg bestelling toe" />
+
+
+</form>

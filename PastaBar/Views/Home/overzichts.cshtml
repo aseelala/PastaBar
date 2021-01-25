@@ -1,0 +1,27 @@
+﻿@model List<Pasta>
+<h2>Overzischt bestellingen </h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Pastasoort</th>
+            <th>Grotte</th>
+            <th>Saus</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pasta in Model)
+        {
+            <tr>
+                <td>@pasta.Soort</td>
+                <td>@pasta.Grotte</td>
+                <td>@pasta.Saus</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+<p><a asp-action="naarpastashop" class="btn btn-primary">Bestelling(en) doorsturen</a></p>
+<br />
+
+
